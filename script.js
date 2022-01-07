@@ -32,22 +32,24 @@ function getPasswordFormula()  {
   var numConfirm = window.confirm("Do you want to include numbers?");
   if(numConfirm) {
     finalPassword = finalPassword.concat(numChar);
-    console.log(finalPassword);
+    console.log("finalPassword: ", finalPassword);
   }
   var lowerConfirm = window.confirm("Do you want to include lowercase letters?");
   if(lowerConfirm) {
     finalPassword = finalPassword.concat(lowerChar);
-    console.log(finalPassword);
+    console.log("finalPassword: ", finalPassword);
   }
-
-   console.log("passwordLength: ", passwordLength);
-   console.log("upperConfirm: ", upperConfirm);
-   console.log("specialConfirm: ", specialConfirm);
-   console.log("numConfirm: ", numConfirm);
-   console.log("lowerConfirm: ", lowerConfirm);
-
 }
-// random number function
+  // trying to create a loop that iterates through finalPassword
+  // and selects random elements, stopping the loop when it has
+  //  reached the passwordLength variable from the user input int he prompt at beginning of code
+  // for(i=0; i < finalPassword.length; i++{
+    // for(s=0; i < ; i++{
+
+
+    
+
+
 
 
  
