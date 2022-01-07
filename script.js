@@ -9,14 +9,15 @@ var lowerChar = [
   "a", "b", "c", "d", "e", "f", "g", "h", "i", "j",
  "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
 ];
-var finalPassword = "";
-var passwordLength;
+var finalPassword = [];
+
 
 // prompts for password creation
 function getPasswordFormula()  {
-  var passwordLength = window.prompt("Enter desired password character length. Must be between 8 and 128 characters");
+  var passwordLength = Number(prompt("Enter desired password character length. Must be between 8 and 128 characters"));
   if(passwordLength < 8 || passwordLength > 128) {
     window.prompt("Please enter a value between 8 and 128!");
+    console.log(passwordLength);
   } 
   var upperConfirm =  window.confirm("Do you want to include uppercase letters?");  
   if(upperConfirm) {
@@ -38,14 +39,28 @@ function getPasswordFormula()  {
   if(lowerConfirm) {
     finalPassword = finalPassword.concat(lowerChar);
     console.log("finalPassword: ", finalPassword);
-  }
-}
+  }  
+   function randomize() {
+     var randomResult = finalPassword[Math.floor(Math.random()) * passwordLength];
+     console.log(randomResult);
+   }
+   randomize();
+
   // trying to create a loop that iterates through finalPassword
   // and selects random elements, stopping the loop when it has
   //  reached the passwordLength variable from the user input int he prompt at beginning of code
   // for(i=0; i < finalPassword.length; i++{
     // for(s=0; i < ; i++{
 
+    // function creatRandomPassword() {
+      // for (var i = 0; i < passwordLength ; i++) {
+        // finalPassword += finalPassword.charAt(Math.floor(Math.random() * passwordLength));
+        
+      //  console.log(finalPassword);    
+      //  }
+    // }
+
+}
 
     
 
