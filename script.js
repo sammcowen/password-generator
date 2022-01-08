@@ -16,79 +16,72 @@ var passwordLength ;
 // prompts for password creation
 function getPasswordFormula()  {
   var passwordLength = (prompt("Enter desired password character length. Must be between 8 and 128 characters"));
-  console.log("passwordLength: ", passwordLength);
+  //console.log("passwordLength: ", passwordLength);
   if(passwordLength < 8 || passwordLength > 128) {
     window.prompt("Please enter a value between 8 and 128!");
-    
-  } 
+  } else {
+      alert("You chose " + passwordLength + " characters for your password.");
+    }
+  
   var upperConfirm =  window.confirm("Do you want to include uppercase letters?");  
   if(upperConfirm) {
     finalPassword = finalPassword.concat(upperChar);
+    alert("you chose to select uppercase letters in your password.");
     console.log("finalPassword:", finalPassword);
-  }  
+  }  else {
+    alert("You do not want any uppercase letters in your password.");
+  }
   var specialConfirm = window.confirm("Do you want to include special characters?"); 
   if(specialConfirm) {
     finalPassword = finalPassword.concat(specialChar);
+    alert("You chose to select special characters in your password.");
     console.log("finalPassword:", finalPassword);
-    
+  }else {
+    alert("You do not want any special characters in your password ");
   }
+    
+  
   var numConfirm = window.confirm("Do you want to include numbers?");
   if(numConfirm) {
     finalPassword = finalPassword.concat(numChar);
+    alert("You chose to select numbers in your password.");
     console.log("finalPassword: ", finalPassword);
+  }else {
+    alert("You do not want to include numbers in your password.");
   }
   var lowerConfirm = window.confirm("Do you want to include lowercase letters?");
   if(lowerConfirm) {
     finalPassword = finalPassword.concat(lowerChar);
+    alert("You chose to include lowercase letters in your password.");
     console.log("finalPassword: ", finalPassword);
-  }  
+  }  else {
+    alert("You do not want to include lowercase letters in your password.");
+  }
+  var randomResult = ""; 
    function randomize() {
-     var randomResult = finalPassword[Math.floor(Math.random()) * finalPassword.length] ;
-     console.log(randomResult);
+      randomResult += finalPassword[Math.floor(Math.random() * finalPassword.length)] ;
    }
-   passwordLength;
+  
    for(i= 0; i < passwordLength; i++){
      randomize();
    }
-  
+   console.log(randomResult)
+   return randomResult;
 
-  // trying to create a loop that iterates through finalPassword
-  // and selects random elements, stopping the loop when it has
-  //  reached the passwordLength variable from the user input int he prompt at beginning of code
-  // for(i=0; i < finalPassword.length; i++{
-    // for(s=0; i < ; i++{
-
-    // function creatRandomPassword() {
-      // for (var i = 0; i < passwordLength ; i++) {
-        // finalPassword += finalPassword.charAt(Math.floor(Math.random() * passwordLength));
-        
-      //  console.log(finalPassword);    
-      //  }
-    // }
-
-}
-
-    
-
-
-
-
- 
- 
-
+  }
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = getPasswordFormula();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = finalPassword;
+  passwordText.value = password;
 
 }
 
 // Add event listener to generate button
-//generateBtn.addEventListener("click", writePassword);
-generateBtn.addEventListener("click", getPasswordFormula);
+generateBtn.addEventListener("click", writePassword);
+
